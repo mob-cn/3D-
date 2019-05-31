@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>zhuan</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.conter{
+			width: 400px;height: 400px;
+			position:relative;
+			margin:150px auto 0px;
+			transform:rotateX(30deg) rotateY(30deg);
+			transform-style: preserve-3d;
+			animation:zhuan 5s linear 2s infinite;
+		}
+		.conter div{
+			width: 100%;height: 100%;
+			position:absolute;
+			top:0;
+			left:0;
+			background-color:rgba(50,50,50,.1);
+			border:1px solid black;
+		}
+		.conter div.one{
+			transform:translateZ(200px);
+		}
+		.conter div.two{
+			transform:translateZ(-200px);
+		}
+		.conter div.three{
+			
+			transform:rotateX(90deg) translateZ(200px);
+		}
+		.conter div.four{			
+			transform:rotateX(90deg) translateZ(-200px);
+		}
+		.conter div.five{			
+			transform:rotateY(90deg) translateZ(200px);
+		}
+		.conter div.six{			
+			transform:rotateY(90deg) translateZ(-200px);
+		}
+		.conter .inner{
+			width: 200px;height: 200px;
+			position:absolute;
+			top:100px;
+			left:100px;
+			transform:rotateX(45deg) rotateY(45deg);
+			background: none;
+			transform-style: preserve-3d;
+			border:none;
+			animation:zhuan 2s linear 2s infinite;
+		}
+		.conter .inner div{
+			width: 100%;height: 100%;
+			position:absolute;
+			top:0;
+			left:0;
+			background-color:rgba(0,0,0,.1);
+		
+		}
+		.conter .inner div.in1{
+			transform:translateZ(100px);
+			background-color:rgba(255,0,0,.8);
+		}
+		.conter .inner div.in2{
+			transform:translateZ(-100px);
+			background-color:rgba(0,255,0,.8);
+		}
+		.conter .inner div.in3{
+			
+			transform:rotateX(90deg) translateZ(100px);
+			background-color:rgba(0,0,255,.8);
+		}
+		.conter .inner div.in4{			
+			transform:rotateX(90deg) translateZ(-100px);
+			background-color:rgba(255,255,0,.8);
+		}
+		.conter .inner div.in5{			
+			transform:rotateY(90deg) translateZ(100px);
+			background-color:rgba(255,0,255,.8);
+		}
+		.conter .inner div.in6{			
+			transform:rotateY(90deg) translateZ(-100px);
+			background-color:rgba(0,255,255,.8);
+		}
+		@keyframes zhuan{
+			0%{
+				transform: rotateX(30deg) rotateY(30deg);
+			}
+			100%{
+				transform: rotateX(390deg) rotateY(390deg);
+			}
+		
+		/*	100%{
+				transform: rotateX(45deg) rotateX(45deg);
+			}*/
+		}	
+
+	</style>
+</head>
+<body>
+	<div class="conter">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+		<div class="four"></div>
+		<div class="five"></div>
+		<div class="six"></div>
+		<div class="inner">
+			<div class="in1"></div>
+			<div class="in2"></div>
+			<div class="in3"></div>
+			<div class="in4"></div>
+			<div class="in5"></div>
+			<div class="in6"></div>
+		</div>
+	</div>
+</body>
+</html>
