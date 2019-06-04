@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<style type="text/css">
+		form {
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		<form class="center-block text-center">
+		  <div class="form-group">
+		    <label for="">用户名</label>
+		    <input type="text" id="username"  name="username" class="form-control"  placeholder="用户名">
+		  </div>
+		  <div class="form-group">
+		    <label for="">密码</label>
+		    <input type="password" id="password" name="password" class="form-control"  placeholder="Password">
+		  </div>
+		  <button type="button" id="btn"  class="btn btn-default">注册</button>
+		  <button type="button" id="btn2" class="btn btn-default">登陆</button>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script type="text/javascript">
+		var $username=$("#username");
+		var $password=$("#password");
+		var $btn=$("#btn");	
+		var $btn2=$("#btn2");	
+		var username = "";
+		var password = "";
+		$username.blur(function(){
+			var me =this;
+			username=this.value;
+			$.get("/checkname",{username:username},function(data){
+				console.log(data);
+				alert(data.data);
+				if (!data.error) {
+	 				return;
+	 			}
+	 			//清空表单内容
+	 			me.value = "";
+			},"json");
+		});
+		$password.blur(function(){
+
+			password=this.value;
+
+		});
+
+
+		$btn.click(function(){
+
+			if(username !="" && password != ""){
+
+				$.get("/updata",{username:username,password:password},function(data){
+					alert(data);
+				});
+
+			}
+			else{
+				alert("请填写完整");
+			}
+
+		});
+
+
+
+
+		$btn2.click(function(){
+
+			if(username !="" && password != ""){
+
+				$.post("/login",{username:username,password:password},function(data){
+			
+					console.log(data);
+					console.log(data.arr);
+				},"json");
+
+			}
+			else{
+				alert("请填写完整");
+			}
+
+		});
+
+
+
+
+
+	</script>
+</body>
+</html>
